@@ -6,9 +6,11 @@ class User < ApplicationRecord
 
   has_many :books,dependent: :destroy
   attachment :profile_image
-  
+
+  has_many :favorites, dependent: :destroy
+
   validates :name, uniqueness: true
   validates :name, length: { minimum: 2, maximum: 20 }
   validates :introduction, length: { maximum: 50 }
-  
+
 end
